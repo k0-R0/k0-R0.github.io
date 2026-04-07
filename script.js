@@ -1,50 +1,63 @@
-// SMOOTH SCROLL
-document.querySelectorAll("nav a").forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+const sections = [...document.querySelectorAll("section")];
+const links = [...document.querySelectorAll(".nav-link")];
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const topOffset = 72;
 
-    const target = document.querySelector(this.getAttribute("href"));
+links.forEach((anchor) => {
+  anchor.addEventListener("click", (event) => {
+    event.preventDefault();
 
+    const target = document.querySelector(anchor.getAttribute("href"));
+    if (!target) {
+      return;
+    }
+
+    const top = target.getBoundingClientRect().top + window.scrollY - topOffset;
     window.scrollTo({
-      top: target.offsetTop - 80,
-      behavior: "smooth"
+      top,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
     });
   });
 });
 
-// SCROLL ANIMATION (FADE-IN)
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
+if (prefersReducedMotion) {
+  sections.forEach((section) => section.classList.add("visible"));
+} else {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
+
+function setActiveLink() {
+  let currentId = sections[0] ? sections[0].id : "";
+  const scrollPosition = window.scrollY + topOffset + 24;
+
+  sections.forEach((section) => {
+    if (scrollPosition >= section.offsetTop) {
+      currentId = section.id;
     }
   });
-}, {
-  threshold: 0.2
-});
 
-document.querySelectorAll("section").forEach(section => {
-  observer.observe(section);
-});
-
-// ACTIVE NAV HIGHLIGHT
-const sections = document.querySelectorAll("section");
-const links = document.querySelectorAll("nav a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(sec => {
-    const top = sec.offsetTop;
-    if (scrollY >= top - 200) {
-      current = sec.id;
+  links.forEach((link) => {
+    const isActive = link.getAttribute("href") === `#${currentId}`;
+    link.classList.toggle("is-active", isActive);
+    if (isActive) {
+      link.setAttribute("aria-current", "true");
+    } else {
+      link.removeAttribute("aria-current");
     }
   });
+}
 
-  links.forEach(link => {
-    link.style.color = "#8892b0";
-    if (link.getAttribute("href") === "#" + current) {
-      link.style.color = "#64ffda";
-    }
-  });
-});
+window.addEventListener("scroll", setActiveLink, { passive: true });
+window.addEventListener("load", setActiveLink);
+setActiveLink();

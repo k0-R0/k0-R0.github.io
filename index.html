@@ -6,60 +6,66 @@
   <title>Prayush Menon</title>
 
   <!-- FONT -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <div class="layout">
 
-    <!-- LEFT PANEL -->
-    <aside class="left">
+    <aside class="left" aria-label="Profile and navigation">
 
-      <h1 class="name">Prayush Menon</h1>
-      <h2 class="role">Systems & Embedded Engineer</h2>
+      <h1 class="name">Prayush Menon (K0r05)</h1>
+      <h2 class="role">Low-level Software Learner · Future Systems Wizard</h2>
 
       <p class="left-desc">
-        I build low-level software and explore how systems work under the hood.
+        I write C/C++, break things, debug them, and repeat until it clicks.
       </p>
 
-      <nav>
+      <nav aria-label="Section navigation">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#leetcode">LeetCode</a></li>
+          <li><a class="nav-link" href="#about">About</a></li>
+          <li><a class="nav-link" href="#skills">Skills</a></li>
+          <li><a class="nav-link" href="#projects">Projects</a></li>
+          <li><a class="nav-link" href="#leetcode">LeetCode</a></li>
         </ul>
       </nav>
 
+      <p class="left-meta">Fedora daily driver · Open to internships and collaborations</p>
+
     </aside>
 
-    <!-- RIGHT CONTENT -->
-    <main class="right">
+    <main id="main-content" class="right">
 
       <section id="about">
+        <h2>About</h2>
         <p>
-          I’m an aspiring systems and embedded engineer focused on building a strong
-          foundation in C and C++. I’m deeply interested in low-level software and
-          understanding how systems work under the hood.
+          I’m Prayush, but I go by <strong>K0r05</strong> (or <strong>k0r0</strong>) on most platforms.
+          The nickname stuck after watching <em>Assassination Classroom</em>, and now it feels like part
+          of my build config. Long term, I want to teach software engineering with a strong low-level focus.
         </p>
 
         <p>
-          I enjoy solving problems, debugging with GDB, and working through algorithmic
-          challenges. I’m currently pursuing an embedded systems course and moving toward
-          Linux systems programming.
+          Right now, I’m building my fundamentals in C and C++, doing an embedded systems course,
+          and preparing to dive deeper into Linux systems programming and syscalls once my basics
+          are battle-tested.
         </p>
 
         <p>
-          I use Fedora as my daily driver and actively work with tools like CMake and Git.
-          I enjoy building small projects and refining my workflow. Long term, I aim to
-          master low-level engineering and teach it.
+          I love solving problems with code because that “it finally works” dopamine hit is real.
+          I actively use GDB while debugging mini-projects, use CMake (still leveling up),
+          keep project history clean with Git, and probably talk about Vim more than necessary.
         </p>
       </section>
 
       <section id="skills">
+        <h2>Skills</h2>
+        <p class="section-intro">
+          Current toolkit: reliable enough to build real stuff, and still growing every week.
+        </p>
         <ul>
           <li>C / C++</li>
           <li>Linux (Fedora)</li>
@@ -71,34 +77,57 @@
       </section>
 
       <section id="projects">
+        <h2>Projects</h2>
+        <p class="section-intro">
+          Three C projects so far, each one taught me something useful (and humbled me at least once).
+        </p>
 
-        <div class="project">
-          <h3>MP3 Tag Editor</h3>
-          <p>Binary parsing and metadata editing in C.</p>
-          <a href="https://github.com/k0-R0/Address-Book">View Project →</a>
-        </div>
+        <div class="project-grid">
+          <article class="project">
+            <h3>MP3 Tag Editor</h3>
+            <p>Reads and edits MP3 metadata in C. My intro to binary parsing and careful file handling.</p>
+            <ul class="tags" aria-label="MP3 Tag Editor technologies">
+              <li>C</li>
+              <li>File I/O</li>
+              <li>Binary Parsing</li>
+            </ul>
+            <a href="https://github.com/k0-R0/MP3_TagReader" target="_blank" rel="noopener noreferrer">See the code →</a>
+          </article>
 
-        <div class="project">
-          <h3>Steganography</h3>
-          <p>LSB-based hidden data embedding.</p>
-          <a href="https://github.com/k0-R0/MP3_TagReader">View Project →</a>
-        </div>
+          <article class="project">
+            <h3>Steganography</h3>
+            <p>Hides and extracts secret messages in images using LSB. Bit manipulation got very real here.</p>
+            <ul class="tags" aria-label="Steganography technologies">
+              <li>C</li>
+              <li>Image Processing</li>
+              <li>Bit Manipulation</li>
+            </ul>
+            <a href="https://github.com/k0-R0/Steganography" target="_blank" rel="noopener noreferrer">See the code →</a>
+          </article>
 
-        <div class="project">
-          <h3>Address Book</h3>
-          <p>CLI contact manager using file handling.</p>
-          <a href="https://github.com/k0-R0/Steganography">View Project →</a>
+          <article class="project">
+            <h3>Address Book</h3>
+            <p>CLI contact manager with file persistence and search. Simple idea, lots of useful C practice.</p>
+            <ul class="tags" aria-label="Address Book technologies">
+              <li>C</li>
+              <li>Data Structures</li>
+              <li>CLI</li>
+            </ul>
+            <a href="https://github.com/k0-R0/Address-Book" target="_blank" rel="noopener noreferrer">See the code →</a>
+          </article>
         </div>
 
       </section>
 
       <section id="leetcode">
+        <h2>LeetCode</h2>
         <p>
-          I regularly solve problems to improve algorithmic thinking.
+          I solve problems on LeetCode as <strong>k0r05</strong>. It keeps my problem-solving sharp,
+          and yes, every accepted solution gives me a tiny victory dance moment.
         </p>
 
-        <a href="https://leetcode.com/k0r05" target="_blank">
-          View Profile →
+        <a href="https://leetcode.com/k0r05" target="_blank" rel="noopener noreferrer">
+          Visit my LeetCode →
         </a>
       </section>
 
