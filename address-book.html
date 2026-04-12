@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Address Book (C) · Prayush Menon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!--
+    Slots for your polished pass:
+    - .note-prose: project narrative (replace or extend the copy below).
+    - #repository .note-repo-list: add secondary links (docs, releases) beside the main GitHub URL if needed.
+    - #config .note-code-block code: build lines, compiler flags, data file paths, or directory layout notes.
+    - #cheatsheet tbody: add <tr><td>./address_book --help</td><td>Describe the flag</td></tr> style rows for CLI usage.
+  -->
+</head>
+<body>
+  <a class="skip-link" href="#note-main">Skip to content</a>
+
+  <div class="note-page">
+    <a class="note-back quiet-link" href="index.html">← Home</a>
+
+    <main id="note-main">
+      <article class="note-article">
+        <header class="note-header">
+          <h1>Address Book</h1>
+          <p class="note-lede">
+            A command-line contact manager in C with file-backed storage and simple search. Use the sections below for
+            the long-form article, build notes, and a CLI cheatsheet alongside the repository link.
+          </p>
+        </header>
+
+        <nav class="note-toc" aria-label="On this page">
+          <ul>
+            <li><a href="#repository">Repository</a></li>
+            <li><a href="#config">Config</a></li>
+            <li><a href="#cheatsheet">Cheatsheet</a></li>
+          </ul>
+        </nav>
+
+        <div class="note-prose">
+          <p>
+            Add, list, edit, and delete contacts; persist them between runs; search without leaving the terminal. The
+            scope stayed small on purpose so the interesting parts stay in C, file I/O, and shaping the CLI.
+          </p>
+          <p>Highlights I expect to keep in the final article:</p>
+          <ul>
+            <li>Structuring records in memory and on disk so saves and loads stay predictable.</li>
+            <li>Guarding string handling, file paths, and cleanup when input goes wrong.</li>
+            <li>Clear prompts and errors instead of clever but opaque output.</li>
+          </ul>
+        </div>
+
+        <section id="repository" class="note-section" aria-labelledby="addr-repo-h">
+          <h2 id="addr-repo-h">Repository</h2>
+          <ul class="note-repo-list" aria-label="Project repositories">
+            <li>
+              <a class="quiet-link" href="https://github.com/k0-R0/Address-Book" target="_blank" rel="noopener noreferrer">github.com/k0-R0/Address-Book →</a>
+            </li>
+          </ul>
+        </section>
+
+        <section id="config" class="note-section" aria-labelledby="addr-config-h">
+          <h2 id="addr-config-h">Config</h2>
+          <pre class="note-code-block"><code></code></pre>
+        </section>
+
+        <section id="cheatsheet" class="note-section" aria-labelledby="addr-cheat-h">
+          <h2 id="addr-cheat-h">Cheatsheet</h2>
+          <div class="note-table-wrap">
+            <table class="note-cheat-table">
+              <caption class="visually-hidden">CLI commands</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Command</th>
+                  <th scope="col">What it does</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
