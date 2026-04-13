@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Neovim · Prayush Menon</title>
+  <title>k0-R0 | Neovim</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <!--
-    Slots for your polished pass:
-    - .note-prose: article voice and context (replace or extend the paragraphs below).
-    - #repository .note-repo-list: add <li><a href="…">…</a></li> for dotfiles, nvim-only repo, or gists.
-    - #config .note-code-block code: paste init.lua snippets, plugin list blocks, or short excerpts.
-    - #cheatsheet tbody: add <tr><td>:w</td><td>Save buffer</td></tr> rows (command | what it does).
-  -->
+  <!-- Marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#note-main">Skip to content</a>
@@ -22,58 +18,43 @@
 
     <main id="note-main">
       <article class="note-article">
-        <header class="note-header">
-          <h1>Neovim</h1>
-          <p class="note-lede">
-            Notes on how I actually use Neovim day to day. The sections below are structured so you can drop in
-            repository links, config excerpts, and a command cheatsheet when you are ready.
-          </p>
-        </header>
-
-        <nav class="note-toc" aria-label="On this page">
-          <ul>
-            <li><a href="#repository">Repository</a></li>
-            <li><a href="#config">Config</a></li>
-            <li><a href="#cheatsheet">Cheatsheet</a></li>
-          </ul>
-        </nav>
-
-        <div class="note-prose">
-          <p>
-            Most of my editing time stays in normal mode with the usual motions; buffers and splits cover the cases
-            where I need more than one file in view. The goal for this page is a single place for the story, the repos,
-            the snippets I rely on, and the commands I reach for often.
-          </p>
+        <div id="content" class="note-prose">
+          <!-- Markdown content will be rendered here -->
+          <p>Loading post...</p>
         </div>
-
-        <section id="repository" class="note-section" aria-labelledby="neovim-repo-h">
-          <h2 id="neovim-repo-h">Repository</h2>
-          <ul class="note-repo-list" aria-label="Configuration repositories"></ul>
-        </section>
-
-        <section id="config" class="note-section" aria-labelledby="neovim-config-h">
-          <h2 id="neovim-config-h">Config</h2>
-          <pre class="note-code-block"><code></code></pre>
-        </section>
-
-        <section id="cheatsheet" class="note-section" aria-labelledby="neovim-cheat-h">
-          <h2 id="neovim-cheat-h">Cheatsheet</h2>
-          <div class="note-table-wrap">
-            <table class="note-cheat-table">
-              <caption class="visually-hidden">Commands I use often</caption>
-              <thead>
-                <tr>
-                  <th scope="col">Command</th>
-                  <th scope="col">What it does</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-            </table>
-          </div>
-        </section>
       </article>
     </main>
   </div>
+
+  <script>
+    async function loadMarkdown() {
+      try {
+        const response = await fetch('neovim.md');
+        if (!response.ok) throw new Error('Could not load markdown file.');
+        const markdown = await response.text();
+        
+        // Render Markdown to HTML
+        document.getElementById('content').innerHTML = marked.parse(markdown);
+
+        // Apply theme-specific adjustments to rendered content
+        const content = document.getElementById('content');
+        
+        // Wrap tables for horizontal scrolling and apply custom class
+        content.querySelectorAll('table').forEach(table => {
+          table.classList.add('note-cheat-table');
+          const wrap = document.createElement('div');
+          wrap.className = 'note-table-wrap';
+          table.parentNode.insertBefore(wrap, table);
+          wrap.appendChild(table);
+        });
+
+      } catch (error) {
+        console.error('Markdown Error:', error);
+        document.getElementById('content').innerHTML = `<p style="color: #ef4743;">Error: ${error.message}</p>`;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadMarkdown);
+  </script>
 </body>
 </html>

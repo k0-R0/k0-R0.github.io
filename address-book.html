@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Address Book (C) · Prayush Menon</title>
+  <title>k0-R0 | Address Book</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <!--
@@ -25,8 +26,8 @@
         <header class="note-header">
           <h1>Address Book</h1>
           <p class="note-lede">
-            A command-line contact manager in C with file-backed storage and simple search. Use the sections below for
-            the long-form article, build notes, and a CLI cheatsheet alongside the repository link.
+            A command-line contact manager written in C. It uses file-backed storage and has a basic search 
+            feature—nothing too fancy, just some good practice with file I/O and CLI structures.
           </p>
         </header>
 
@@ -40,14 +41,15 @@
 
         <div class="note-prose">
           <p>
-            Add, list, edit, and delete contacts; persist them between runs; search without leaving the terminal. The
-            scope stayed small on purpose so the interesting parts stay in C, file I/O, and shaping the CLI.
+            The idea was to build a way to add, list, and edit contacts that actually sticks around after 
+            you close the terminal. I kept the scope small so I could focus on how C handles memory 
+            and files without getting lost in too many features.
           </p>
-          <p>Highlights I expect to keep in the final article:</p>
+          <p>Some of the things I worked on:</p>
           <ul>
-            <li>Structuring records in memory and on disk so saves and loads stay predictable.</li>
-            <li>Guarding string handling, file paths, and cleanup when input goes wrong.</li>
-            <li>Clear prompts and errors instead of clever but opaque output.</li>
+            <li>Structuring data so saving and loading from the disk doesn't break everything.</li>
+            <li>Being careful with how strings and file paths are handled.</li>
+            <li>Keeping the CLI prompts simple and clear.</li>
           </ul>
         </div>
 
