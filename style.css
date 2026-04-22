@@ -301,7 +301,7 @@ a:focus-visible,
 }
 
 .note-page {
-  max-width: 52rem;
+  max-width: 68rem;
   margin: 0 auto;
   padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem) clamp(3rem, 8vw, 5rem);
 }
@@ -316,7 +316,7 @@ a:focus-visible,
 }
 
 .note-article {
-  padding: clamp(1.2rem, 2vw, 1.8rem);
+  padding: clamp(1.2rem, 4vw, 2.8rem);
   border: 1px solid var(--border);
   border-radius: 16px;
   background: linear-gradient(180deg, var(--surface-strong), var(--surface));
@@ -324,8 +324,8 @@ a:focus-visible,
 }
 
 .note-article h1 {
-  margin: 0 0 0.35rem;
-  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  margin: 0 0 1rem;
+  font-size: clamp(1.650rem, 4vw, 2.25rem);
   letter-spacing: -0.02em;
   color: var(--text-primary);
 }
@@ -333,165 +333,146 @@ a:focus-visible,
 .note-lede {
   margin: 0 0 1.25rem;
   color: var(--text-secondary);
-  font-size: 1rem;
-  max-width: 62ch;
+  font-size: 1.1rem;
+  max-width: 80ch;
 }
 
 .note-article p {
-  max-width: 62ch;
+  max-width: 80ch;
+  line-height: 1.6;
 }
 
 .note-prose h2 {
-  margin: 1.5rem 0 0.65rem;
-  font-size: 1.1rem;
+  margin: 2rem 0 0.85rem;
+  font-size: 1.4rem;
   color: var(--text-primary);
   letter-spacing: 0.01em;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.35rem;
+}
+
+.note-prose h3 {
+  margin: 1.5rem 0 0.65rem;
+  font-size: 1.15rem;
+  color: var(--text-primary);
 }
 
 .note-article ul {
-  max-width: 62ch;
-  margin-bottom: 1rem;
-}
-
-.note-header {
-  margin-bottom: 0.35rem;
-}
-
-.note-prose {
-  margin-bottom: 0.5rem;
-}
-
-.note-prose > p:last-child,
-.note-prose > ul:last-child {
-  margin-bottom: 0;
-}
-
-.note-section {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-
-.note-section h2 {
-  margin: 0 0 0.85rem;
+  max-width: 80ch;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
   font-size: 1.1rem;
-  color: var(--text-primary);
-  letter-spacing: 0.01em;
 }
 
-.note-toc {
-  margin: 0 0 1.15rem;
-  font-size: 0.9rem;
+.note-article li {
+  margin-bottom: 0.65rem;
 }
 
-.note-toc ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem 1.1rem;
-}
-
-.note-toc a {
-  color: var(--text-secondary);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.note-toc a:hover {
-  color: var(--accent);
-}
-
-.note-toc a:focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-.note-table-wrap {
-  overflow-x: auto;
-  max-width: 100%;
-  margin-bottom: 1rem;
-}
-
-.note-table-wrap .note-cheat-table {
-  margin-bottom: 0;
-}
-
-.note-section > p,
-.note-section > ul,
-.note-section > .note-repo-list {
-  max-width: 62ch;
-}
-
-.note-repo-list {
-  list-style: none;
-  margin: 0 0 1rem;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.note-repo-list a {
-  font-weight: 600;
-}
-
-.note-code-block {
-  margin: 0 0 1rem;
-  max-width: min(100%, 72ch);
-  padding: 1rem 1.1rem;
+/* Markdown Code Blocks */
+.note-prose pre {
+  margin: 1.25rem 0;
+  padding: 1.25rem;
   overflow-x: auto;
   border-radius: 12px;
   border: 1px solid var(--border);
-  background: rgba(12, 19, 33, 0.85);
-  min-height: 3.25rem;
+  background: rgba(12, 19, 33, 0.95);
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
 }
 
-.note-code-block code {
-  font-family: "Fira Code", ui-monospace, monospace;
-  font-size: 0.9rem;
-  line-height: 1.55;
+.note-prose pre::before {
+  content: "TERMINAL";
+  position: absolute;
+  top: 0;
+  right: 1.25rem;
+  font-size: 0.65rem;
+  font-weight: 700;
   color: var(--text-secondary);
-  white-space: pre-wrap;
-  word-break: break-word;
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+  transform: translateY(50%);
+  pointer-events: none;
 }
 
+.copy-button {
+  position: absolute;
+  top: 0.65rem;
+  right: 1.25rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--surface-strong);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.note-prose pre:hover .copy-button {
+  opacity: 1;
+}
+
+.copy-button:hover {
+  background: var(--surface);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.copy-button.copied {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(163, 255, 18, 0.1);
+}
+
+/* Adjust terminal indicator when button is present */
+.note-prose pre:hover::before {
+  opacity: 0;
+}
+
+.note-prose code {
+  font-family: "Fira Code", ui-monospace, monospace;
+  font-size: 0.95rem;
+  color: #d1d9e6;
+}
+
+.note-prose pre code {
+  color: var(--text-secondary);
+  display: block;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+/* Table consistency */
 .note-cheat-table {
   width: 100%;
-  max-width: 72ch;
+  max-width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
-  margin: 0 0 1rem;
-}
-
-.note-cheat-table caption {
-  text-align: left;
-  margin-bottom: 0.65rem;
-  color: var(--text-secondary);
-  font-size: 0.92rem;
-  font-weight: 500;
+  font-size: 1rem;
+  margin: 1.5rem 0;
 }
 
 .note-cheat-table th,
 .note-cheat-table td {
-  padding: 0.55rem 0.65rem;
+  padding: 0.85rem 1rem;
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--border);
 }
 
-.note-cheat-table th {
-  color: var(--text-primary);
-  font-weight: 600;
-}
-
 .note-cheat-table td:first-child {
   font-family: "Fira Code", ui-monospace, monospace;
-  font-size: 0.88rem;
+  font-size: 1.15rem;
   color: var(--accent-cool);
   white-space: nowrap;
+  font-weight: 700;
+  padding-right: 1.5rem;
+}
+
+.note-cheat-table td:first-child code {
+  color: inherit;
 }
 
 .note-cheat-table tbody tr:last-child th,

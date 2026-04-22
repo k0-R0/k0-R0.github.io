@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>k0-R0 | Note</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Marked.js for Markdown parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#note-main">Skip to content</a>
+
+  <div class="note-page">
+    <a class="note-back quiet-link" href="index.html">← Home</a>
+
+    <main id="note-main">
+      <article class="note-article">
+        <div id="content" class="note-prose">
+          <!-- Markdown content will be rendered here -->
+          <p>Loading post...</p>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    async function loadMarkdown() {
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const mdPath = urlParams.get('md');
+        
+        if (!mdPath) {
+          throw new Error('No markdown path specified.');
+        }
+
+        // Sanitize path slightly to prevent directory traversal if hosted locally
+        // but since it's client side fetch, it's limited by the server's serving rules.
+        const response = await fetch(`content/${mdPath}.md`);
+        
+        if (!response.ok) {
+          if (response.status === 404) {
+             throw new Error(`Note "${mdPath}" not found.`);
+          }
+          throw new Error('Could not load markdown file.');
+        }
+        
+        const markdown = await response.text();
+        
+        // Render Markdown to HTML
+        document.getElementById('content').innerHTML = marked.parse(markdown);
+
+        // Update Title
+        const firstH1 = document.querySelector('#content h1');
+        if (firstH1) {
+          document.title = `k0-R0 | ${firstH1.textContent}`;
+        }
+
+        // Apply theme-specific adjustments to rendered content
+        const content = document.getElementById('content');
+        
+        // Wrap tables for horizontal scrolling and apply custom class
+        content.querySelectorAll('table').forEach(table => {
+          table.classList.add('note-cheat-table');
+          const wrap = document.createElement('div');
+          wrap.className = 'note-table-wrap';
+          table.parentNode.insertBefore(wrap, table);
+          wrap.appendChild(table);
+        });
+
+        // Add copy buttons to code blocks
+        content.querySelectorAll('pre').forEach(pre => {
+          const button = document.createElement('button');
+          button.className = 'copy-button';
+          button.innerHTML = 'Copy';
+          button.ariaLabel = 'Copy code to clipboard';
+          
+          pre.appendChild(button);
+
+          button.addEventListener('click', async () => {
+            const code = pre.querySelector('code');
+            const text = code.innerText;
+
+            try {
+              await navigator.clipboard.writeText(text);
+              button.innerHTML = 'Copied!';
+              button.classList.add('copied');
+              
+              setTimeout(() => {
+                button.innerHTML = 'Copy';
+                button.classList.remove('copied');
+              }, 2000);
+            } catch (err) {
+              console.error('Failed to copy: ', err);
+              button.innerHTML = 'Error';
+            }
+          });
+        });
+
+      } catch (error) {
+        console.error('Markdown Error:', error);
+        document.getElementById('content').innerHTML = `
+          <div style="margin-top: 2rem;">
+            <h1 style="color: #ef4743;">Error</h1>
+            <p>${error.message}</p>
+            <a href="index.html" class="quiet-link">Return to Home</a>
+          </div>
+        `;
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadMarkdown);
+  </script>
+</body>
+</html>
