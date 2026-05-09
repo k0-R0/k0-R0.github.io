@@ -28,9 +28,9 @@ I use a customized NvChad setup. It handles the boring boilerplate while staying
 - **Mini.nvim Suite:** I use `mini.indentscope` to see exactly where my brackets start and end, and `mini.pairs` to handle the tedious job of closing parentheses. It's subtle but makes the editor feel much more "alive."
 - **Render-markdown:** Writing READMEs in plain text is depressing. This plugin renders headers and tables directly in the buffer so I can actually see what I'm doing.
 - **Neoscroll:** Smooth scrolling animations might seem like fluff, but they actually help my eyes track where I'm jumping in a file.
-- **Vim-be-good:** ThePrimeagen is the one who actually sparked my interest in this Neovim rabbit hole. This plugin of his was essential for building the muscle memory I needed to stop being slow.
+- **Vim-be-good:** ThePrimeagen is the one who actually sparked my interest in this Neovim rabbit hole. This plugin of his was what I needed to build the muscle memory so I'd stop being slow.
 
-## The "Essential" Cheatsheet
+## The Cheatsheet
 
 I strictly use relative line numbers. It’s the only way to move efficiently without doing mental math.
 
@@ -51,7 +51,7 @@ I strictly use relative line numbers. It’s the only way to move efficiently wi
 | Shortcut | Action |
 | --- | --- |
 | `ciw` | Change inside word. Deletes the word and drops you in insert mode. |
-| `di(` | Delete everything inside parentheses. Essential for refactoring function calls. |
+| `di(` | Delete everything inside parentheses. Useful for refactoring function calls. |
 | `yib` | Yank inside block. I use this to copy entire function bodies. |
 | `yyp` | Duplicate the current line. Faster than copy-pasting. |
 | `ddp` | Swap current line with the one below. Great for reordering logic. |
@@ -82,4 +82,4 @@ When I want to change 3-4 occurrences of a variable but not *all* of them:
 | `20@a` | Run Macro. Play back that sequence 20 times. Massive time saver. |
 
 ## Repository
-[My NvChad Config](https://github.com/k0-R0/NvChad-nvim) — It's a work in progress, but it's home.
+[My NvChad Config](https://github.com/k0-R0/NvChad-nvim), it's a work in progress, but it's home.

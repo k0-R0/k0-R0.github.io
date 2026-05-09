@@ -1,6 +1,6 @@
 # Address Book
 
-A command-line contact manager written in C. It uses file-backed storage and has a basic search feature—nothing too fancy, just some good practice with file I/O and CLI structures.
+A command-line contact manager written in C. It uses file-backed storage and has a basic search feature, nothing too fancy, just some good practice with file I/O and CLI structures.
 
 The idea was to build a way to add, list, and edit contacts that actually sticks around after you close the terminal. I kept the scope small so I could focus on how C handles memory and files without getting lost in too many features.
 

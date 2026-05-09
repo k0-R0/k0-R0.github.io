@@ -173,7 +173,7 @@ ul {
   color: var(--text-secondary);
 }
 
-strong, .highlight {
+strong, .highlight, code {
   color: #d1d9e6;
   font-weight: 700;
 }
