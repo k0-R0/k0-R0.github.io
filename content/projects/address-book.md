@@ -1,26 +1,42 @@
 # Address Book
 
-A command-line contact manager written in C. It uses file-backed storage and has a basic search feature, nothing too fancy, just some good practice with file I/O and CLI structures.
+A CLI contact manager developed in C to practice structured data handling and file persistence. This project focuses on the fundamental mechanics of reading from and writing to the disk while managing dynamic data in memory.
 
-The idea was to build a way to add, list, and edit contacts that actually sticks around after you close the terminal. I kept the scope small so I could focus on how C handles memory and files without getting lost in too many features.
+The core objective was to implement a system that reliably stores contact information across sessions. I focused on building a clean interface between the in-memory data structures and the file-backed storage to ensure data integrity.
 
-### Some of the things I worked on:
-- Structuring data so saving and loading from the disk doesn't break everything.
-- Being careful with how strings and file paths are handled.
-- Keeping the CLI prompts simple and clear.
+### Implementation Details
+- **Data Persistence:** Implemented custom file I/O logic to serialize and deserialize contact structs, ensuring that data is correctly preserved on the disk.
+- **Memory Management:** Managed dynamic allocation for contact lists to handle varying numbers of entries without wasting system resources.
+- **Input Validation:** Focused on handling edge cases in user input to prevent buffer overflows and ensure stable operation during CLI interactions.
 
 ## Repository
 [github.com/k0-R0/Address-Book →](https://github.com/k0-R0/Address-Book)
 
-## Config
+## Build & Run
 ```bash
-# Example build command
-gcc -o address_book main.c contacts.c -Iinclude
+# Clone and build
+git clone https://github.com/k0-R0/Address-Book
+cd Address-Book
+make
+
+# Run the application
+./address_book
 ```
 
+## Menu Options
+The application is entirely menu-driven. Once launched, you can navigate through the following options:
+
+1. **Add Contact:** Prompts for name, phone, and email with built-in validation.
+2. **Search Contact:** Search by name, phone number, or email address.
+3. **Edit Contact:** Modify details of an existing entry.
+4. **Delete Contact:** Remove a contact from the book.
+5. **List Contacts:** Displays all stored contacts in a formatted table.
+6. **Exit:** Saves changes to `contacts.csv` and closes the application.
+
 ## Cheatsheet
-| Command | What it does |
+| Feature | Implementation Detail |
 | --- | --- |
-| `./address_book --add` | Add a new contact |
-| `./address_book --list` | List all contacts |
-| `./address_book --search [name]` | Search for a contact |
+| **Persistence** | Data is serialized to `contacts.csv` for long-term storage. |
+| **Validation** | Regex-like checks for valid email formats and phone digits. |
+| **Rendering** | Custom table renderer for clean CLI output. |
+| **Sorting** | Internal sort engine for organizing contacts by name. |

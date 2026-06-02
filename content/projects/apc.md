@@ -1,14 +1,16 @@
-# APC: Big Math with Linked Lists
+# APC: Arbitrary Precision Calculator
 
-Standard data types like `long long` are fine until you need to calculate something massive. I built this calculator in C because I wanted to handle arithmetic on numbers larger than what fits in regular data types, and it was also a great exercise for practicing linked list manipulations.
+Standard data types like `long long` are insufficient for calculations involving massive numbers. I built this calculator in C to handle arithmetic on numbers of any length. This project served as a deep dive into manual memory management and doubly linked list manipulation.
 
-I used a doubly linked list where each node holds a single digit. This structure was a good way to get comfortable with pointer manipulation and see how things work when you're traversing lists from both ends to perform math.
+I used a doubly linked list where each node stores a single digit. This structure allows for efficient traversal from both ends, which is necessary for performing arithmetic operations from the least significant digit while maintaining pointers for more significant digits.
 
-### Teaching a computer long math
-Since I couldn't just use standard operators, I had to implement the algorithms manually. It's the same "paper-and-pencil" method we learned in school but done with nodes and pointers. Division was definitely the most difficult part to get right, especially handling the logic for how many times one large number fits into another while managing the lists.
+### Implementation Challenges
+Since standard operators do not work on linked lists, I implemented the arithmetic logic manually. This involved simulating the standard "paper-and-pencil" method for addition, subtraction, and multiplication across nodes. 
 
-### Keeping the heap clean
-I was pretty cautious about memory leaks here because every number is a collection of dynamically allocated nodes. I used an enum to track the status of operations and made sure to have a single cleanup spot to free everything. Even if a calculation fails or hits a division-by-zero error, it shouldn't leave any garbage in memory.
+Division was the most complex operation to implement. It required managing multiple list traversals and handling the logic for comparing large numbers to determine how many times one value fits into another.
+
+### Memory Safety
+Memory integrity was a priority because every number is a collection of dynamically allocated nodes. I used an enum-based state machine to track operation status and implemented a centralized cleanup function to ensure all nodes are freed. The system handles errors, such as division by zero, without leaking memory.
 
 ## Repository
 [github.com/k0-R0/APC →](https://github.com/k0-R0/APC)
