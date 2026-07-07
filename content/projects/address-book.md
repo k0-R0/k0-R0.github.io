@@ -1,13 +1,11 @@
 # Address Book
 
-A CLI contact manager developed in C to practice structured data handling and file persistence. This project focuses on the fundamental mechanics of reading from and writing to the disk while managing dynamic data in memory.
+A CLI-based contact manager written in C, featuring file-backed serialization and dynamic memory management. The application focuses on robust data serialization, memory safety, and input sanitization to maintain database integrity across user sessions.
 
-The core objective was to implement a system that reliably stores contact information across sessions. I focused on building a clean interface between the in-memory data structures and the file-backed storage to ensure data integrity.
-
-### Implementation Details
-- **Data Persistence:** Implemented custom file I/O logic to serialize and deserialize contact structs, ensuring that data is correctly preserved on the disk.
-- **Memory Management:** Managed dynamic allocation for contact lists to handle varying numbers of entries without wasting system resources.
-- **Input Validation:** Focused on handling edge cases in user input to prevent buffer overflows and ensure stable operation during CLI interactions.
+### Technical Details
+- **Data Persistence:** Implemented custom file I/O routines to serialize struct arrays into CSV format, ensuring reliable persistence and parsing of contact information on application startup.
+- **Dynamic Memory Allocation:** Manages an array of contact structures dynamically, dynamically scaling the storage limit to optimize memory footprint.
+- **Input Validation & Buffer Security:** Implemented validation checks on user input to enforce formatting (e.g., telephone digits and email syntax) and used bounded input functions to prevent buffer overflow vulnerabilities.
 
 ## Repository
 [github.com/k0-R0/Address-Book →](https://github.com/k0-R0/Address-Book)
@@ -23,15 +21,15 @@ make
 ./address_book
 ```
 
-## Menu Options
-The application is entirely menu-driven. Once launched, you can navigate through the following options:
+## Menu Structure
+The application uses a terminal-based menu loop. Once launched, the following features are available:
 
-1. **Add Contact:** Prompts for name, phone, and email with built-in validation.
-2. **Search Contact:** Search by name, phone number, or email address.
-3. **Edit Contact:** Modify details of an existing entry.
-4. **Delete Contact:** Remove a contact from the book.
-5. **List Contacts:** Displays all stored contacts in a formatted table.
-6. **Exit:** Saves changes to `contacts.csv` and closes the application.
+1. **Add Contact:** Prompts for contact details and runs validation before saving.
+2. **Search Contact:** Filters database entries by name, phone, or email.
+3. **Edit Contact:** Modifies fields of an existing contact structure in place.
+4. **Delete Contact:** Frees or shifts elements in the structure array to remove a record.
+5. **List Contacts:** Renders the active database in a formatted text table.
+6. **Exit:** Serializes the current array state to `contacts.csv` and terminates cleanly.
 
 ## Cheatsheet
 | Feature | Implementation Detail |

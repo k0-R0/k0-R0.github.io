@@ -91,6 +91,27 @@ body {
   font-size: 0.9rem;
 }
 
+.left-contact {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  font-size: 0.95rem;
+}
+
+.contact-item .icon {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+}
+
 nav ul {
   list-style: none;
   margin: 2rem 0 0;
@@ -267,15 +288,23 @@ a:hover {
   color: var(--accent-strong);
 }
 
+a strong {
+  color: inherit;
+}
+
 a.quiet-link {
   color: var(--text-secondary);
   font-weight: 500;
-  transition: color 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.18s ease, gap 0.2s ease;
 }
 
 a.quiet-link:hover {
   color: var(--accent);
   font-weight: 600;
+  gap: 0.55rem;
 }
 
 a.quiet-link:focus-visible {
@@ -537,18 +566,6 @@ a:focus-visible,
   }
 
   *,
-  *::before,
-  *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-
-  section {
-    opacity: 1;
-    transform: none;
-  }
-}
-
   *::before,
   *::after {
     animation: none !important;

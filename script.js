@@ -32,7 +32,22 @@ links.forEach((anchor) => {
   });
 });
 
-// ... (observer logic remains)
+if (prefersReducedMotion) {
+  sections.forEach((section) => section.classList.add("visible"));
+} else {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.2, rootMargin: "0px 0px -8% 0px" }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
 
 let lastId = "";
 

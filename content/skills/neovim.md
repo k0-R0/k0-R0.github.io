@@ -1,14 +1,14 @@
-# Neovim: Speed and Efficiency
+# Neovim: Keyboard-Driven Development
 
-I use Neovim on Fedora because it removes the friction between thinking and writing code. Once the muscle memory for the home row is established, navigating through a project becomes significantly faster. It’s not about being a purist; it’s about having a setup that stays out of the way and allows for rapid editing.
+Neovim serves as my primary development environment on Fedora. Configured for a mouse-free workflow, it minimizes navigation latency and keeps the focus directly on code design. Rather than relying on heavy IDEs, I maintain a lightweight editor optimized for low-level systems programming.
 
-## My Config (NvChad)
+## Config & Integration
 
-I use a customized NvChad setup to handle the initial boilerplate while keeping the editor fast. It provides a solid foundation for my C/C++ development environment.
+My setup uses a customized NvChad base to streamline plugin bootstrapping and optimize editor startup time, providing a responsive environment for C and C++ projects.
 
 ### Setup
 
-1.  **Clone my config:**
+1.  **Clone the config:**
     ```bash
     git clone https://github.com/k0-R0/NvChad-nvim ~/.config/nvim
     ```
@@ -17,68 +17,68 @@ I use a customized NvChad setup to handle the initial boilerplate while keeping 
     nvim
     ```
 3.  **Automatic Install:**
-    On the first run, NvChad installs `lazy.nvim` and syncs the plugins. I typically run `:MasonInstallAll` to ensure all LSPs and formatters are ready for my workflow.
+    On the first run, NvChad installs `lazy.nvim` and syncs the plugin packages. Running `:MasonInstallAll` ensures all configured LSPs, formatters, and diagnostics engines are installed.
 
-## The Plugin Stack
+## Plugin Ecosystem
 
-- **Mason & Conform:** Manages language servers and formatting. I use `clangd` for C++ and Conform to maintain consistent indentation.
-- **Telescope:** A fuzzy finder for jumping to files or searching strings across a project.
-- **Nvim-Tree:** A visual sidebar used when I need to quickly reference the project structure.
-- **Which-Key:** Displays available keybindings, helping to maintain flow without memorizing every shortcut.
-- **Mini.nvim Suite:** Includes `mini.indentscope` for visualizing code blocks and `mini.pairs` for handling parentheses.
-- **Render-markdown:** Provides live rendering for headers and tables in markdown files.
-- **Neoscroll:** Adds smooth scrolling to help track jumps within a file.
-- **Vim-be-good:** A tool I used to build the initial muscle memory for efficient movement.
+- **Mason & Conform:** Automates language server configuration and styling. Integrates `clangd` for C/C++ index analysis and Conform for standard formatting.
+- **Telescope:** Fuzzy finder for project navigation and project-wide text searching.
+- **Nvim-Tree:** Directory sidebar for visualizing project structures.
+- **Which-Key:** Contextual popup displaying active hotkey sequences.
+- **Mini.nvim Suite:** Lightweight utilities for visualizing indent scopes and pairing delimiters.
+- **Render-markdown:** Provides inline parser styling for documentation headers and tables.
+- **Neoscroll:** Handles smooth physics-based buffer scrolling.
+- **Vim-be-good:** Interactive trainer for mastering vim-motion precision.
 
-## Movement and Workflow
+## Motion & Keybindings
 
-I use relative line numbers to move between lines without extra calculation. The goal is to be fast enough that the workflow feels seamless.
+Relative line numbering combined with target-seeking vim motions allows for jumping between functions and scopes with minimal keystrokes.
 
-### Movement
+### Motion Commands
 
-| Key | Action | Why? |
+| Key | Action | Context |
 | --- | --- | --- |
-| `h` `j` `k` `l` | Left, Down, Up, Right | Keeps hands on the home row. |
-| `w` / `b` | Next / Previous word | Basic navigation for speed. |
-| `e` | End of word | Useful for jumping to the end of a variable. |
-| `gg` / `G` | Top / Bottom of file | Quick jumps through the entire buffer. |
-| `Ctrl + d` / `Ctrl + u` | Half-page down / up | Keeps the cursor centered to reduce eye strain. |
-| `%` | Jump between brackets | Navigates through nested C code blocks. |
-| `f` / `t` + `<char>` | Find / To character | Precise horizontal movement. |
+| `h` `j` `k` `l` | Left, Down, Up, Right | Basic navigation on the home row. |
+| `w` / `b` | Next / Previous word | Word-level jump. |
+| `e` | End of word | Precision navigation to end of identifiers. |
+| `gg` / `G` | Top / Bottom of file | Jump to the start or end of the active buffer. |
+| `Ctrl + d` / `Ctrl + u` | Half-page down / up | Scrolling while keeping the viewport centered. |
+| `%` | Jump between brackets | Jump between matching brackets or blocks. |
+| `f` / `t` + `<char>` | Find / To character | Horizontal search and jump within current line. |
 
-### Editing
-
-| Shortcut | Action |
-| --- | --- |
-| `ciw` | Change inside word. |
-| `di(` | Delete inside parentheses. |
-| `yib` | Yank inside block. |
-| `yyp` | Duplicate the current line. |
-| `ddp` | Swap current line with the one below. |
-| `gcc` | Toggle comment. |
-| `u` | Undo. |
-| `.` | Repeat last edit. |
-| `:%s/old/new/g` | Global Replace. |
-| `:'<,'>s/old/new/g` | Visual Replace on selected block. |
-
-### The "Star + Dot" Workflow
-For changing multiple specific occurrences:
-1. `*` to search for next matches.
-2. `ciw` to change the first one.
-3. `n` to jump to the next match.
-4. `.` to repeat the change.
-
-### Navigation & Macros
+### Edit Shortcuts
 
 | Shortcut | Action |
 | --- | --- |
-| `<leader>ff` | Find Files. |
-| `<leader>fw` | Live Grep. |
-| `gd` | Go to Definition. |
-| `<leader>th` | Cycle Themes. |
-| `Ctrl + n` | Toggle Nvim-Tree. |
-| `qa` ... `q` | Record Macro to register 'a'. |
-| `20@a` | Run Macro 20 times. |
+| `ciw` | Change inner word. |
+| `di(` | Delete contents inside parentheses. |
+| `yib` | Yank contents of current code block. |
+| `yyp` | Duplicate the current line down. |
+| `ddp` | Swap current line with the next line. |
+| `gcc` | Toggle line comment. |
+| `u` | Undo last operation. |
+| `.` | Repeat last edit action. |
+| `:%s/old/new/g` | Global find and replace. |
+| `:'<,'>s/old/new/g` | Find and replace within visual selection. |
 
-## Repository
-[My NvChad Config](https://github.com/k0-R0/NvChad-nvim) is where I keep my environment settings.
+### Search & Repeat Loop
+To batch-modify specific code pattern occurrences:
+1. `*` to highlight and jump to the next matching symbol.
+2. `ciw` to change the first instance.
+3. `n` to jump to the next occurrence.
+4. `.` to apply the change.
+
+### Navigation & Command Controls
+
+| Shortcut | Action |
+| --- | --- |
+| `<leader>ff` | Search files. |
+| `<leader>fw` | Grep search. |
+| `gd` | Go to Symbol Definition. |
+| `<leader>th` | Cycle color themes. |
+| `Ctrl + n` | Toggle directory tree. |
+| `qa` ... `q` | Record keystrokes into macro register 'a'. |
+| `20@a` | Playback macro register 'a' 20 times. |
+
+## Configuration Repository
+The custom configurations are hosted at [github.com/k0-R0/NvChad-nvim](https://github.com/k0-R0/NvChad-nvim).

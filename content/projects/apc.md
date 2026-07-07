@@ -1,16 +1,15 @@
 # APC: Arbitrary Precision Calculator
 
-Standard data types like `long long` are insufficient for calculations involving massive numbers. I built this calculator in C to handle arithmetic on numbers of any length. This project served as a deep dive into manual memory management and doubly linked list manipulation.
+This calculator is written in C to perform arithmetic operations on integers of arbitrary length, bypassing standard 64-bit hardware limits. The implementation relies on manual dynamic memory allocation and custom list manipulation.
 
-I used a doubly linked list where each node stores a single digit. This structure allows for efficient traversal from both ends, which is necessary for performing arithmetic operations from the least significant digit while maintaining pointers for more significant digits.
+Each operand is represented as a doubly linked list where each node stores a single digit. This representation enables bidirectional traversal, allowing operations to start from the least significant digit while maintaining pointers for carry and borrow operations.
 
-### Implementation Challenges
-Since standard operators do not work on linked lists, I implemented the arithmetic logic manually. This involved simulating the standard "paper-and-pencil" method for addition, subtraction, and multiplication across nodes. 
+### Implementation Details
+- **Manual Arithmetic:** Because standard operators cannot be applied directly to pointer-based structures, the arithmetic algorithms (addition, subtraction, and multiplication) simulate positional notation arithmetic node-by-node.
+- **Division Algorithm:** Division was implemented by performing repeated subtraction and list comparison, tracking quotient accumulation via temporary accumulator lists. This requires managing multiple concurrent list traversals and pointer positions.
 
-Division was the most complex operation to implement. It required managing multiple list traversals and handling the logic for comparing large numbers to determine how many times one value fits into another.
-
-### Memory Safety
-Memory integrity was a priority because every number is a collection of dynamically allocated nodes. I used an enum-based state machine to track operation status and implemented a centralized cleanup function to ensure all nodes are freed. The system handles errors, such as division by zero, without leaking memory.
+### Memory Management & Safety
+To prevent memory leaks across multi-step calculations, an enum-based state machine tracks the lifecycle of intermediate operand lists. A centralized cleanup routine ensures all allocated nodes are freed during both successful execution and error states (such as division by zero).
 
 ## Repository
 [github.com/k0-R0/APC →](https://github.com/k0-R0/APC)
@@ -32,4 +31,4 @@ make
 | `+` | Addition | Handles numbers of any length. |
 | `-` | Subtraction | Correctly handles negative results. |
 | `x` | Multiplication | Handles carrying values across nodes. |
-| `/` | Division | The most complex implementation. Includes zero-checks. |
+| `/` | Division | Performs zero-checks and handles division loops. |
