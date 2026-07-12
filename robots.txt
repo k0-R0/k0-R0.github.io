@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://k0-r0.github.io/sitemap.xml
