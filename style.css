@@ -289,13 +289,15 @@ a:hover {
 }
 
 .left-desc a,
-#about p a {
+#about p a,
+.note-prose a {
   color: #d1d9e6;
   transition: color 0.25s ease;
 }
 
 .left-desc a:hover,
-#about p a:hover {
+#about p a:hover,
+.note-prose a:hover {
   color: var(--accent);
 }
 

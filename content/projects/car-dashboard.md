@@ -18,9 +18,8 @@ Open and flash the following projects in MPLAB X IDE (using the XC8 compiler) to
 - Flash `ECU2.X` to Board 2 (RPM & Indicator Transmitter).
 - Flash `ECU3.X` to Board 3 (Dashboard Receiver & Display).
 
-### Wiring and Bus Termination
-- Connect the CAN terminals across all three boards using twisted-pair wiring.
-- Enable exactly two 120Ω termination resistors (or jumpers) at the physical ends of the CAN bus to stabilize communication.
+### Wiring
+- Connect the CAN terminals across all three boards using a 3-wire parallel connection, ensuring all nodes are interconnected without any open ends.
 
 ## Node Summary
 | Node | Inputs | Processing / Protocol | Outputs |
