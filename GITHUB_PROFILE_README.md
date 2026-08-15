@@ -32,11 +32,12 @@ I am an **Embedded Systems, Linux & Firmware Engineer** with 3 years of backgrou
 
 ### 🚀 Featured Projects
 
-#### 🏎️ [PIC18 Automotive CAN Node Simulator](https://github.com/k0-R0/Car_Dashboard)
-*Distributed ECU automotive network simulator using PIC18 microcontrollers.*
-- Configured onboard ADC to capture speed & RPM, switch inputs for gear & indicators.
-- Transmitted real-time sensor metrics over **CAN protocol** between multiple ECU nodes to a central CLCD dashboard ECU.
-- **Tech Stack:** `C`, `PIC18F4580`, `CAN Protocol`, `MPLAB X / XC8`
+#### 🐚 [Minishell (Custom Linux Shell)](https://github.com/k0-R0/Minishell)
+*A lightweight Unix command-line shell implemented in C featuring process management and job control.*
+- Engineered arbitrary-depth command pipelining using `fork()`, `execvp()`, `pipe()`, and `dup2()`.
+- Implemented POSIX signal handling (`SIGINT`, `SIGTSTP`, `SIGCHLD`) with dynamic linked-list background job control (`jobs`, `fg`, `bg`).
+- Built shell built-ins (`cd`, `pwd`, `exit`), dynamic prompt customization (`PS1`), and environment inspection (`$$`, `$?`, `$SHELL`).
+- **Tech Stack:** `C`, `Linux Systems Programming`, `POSIX API`, `Process Management`
 
 #### 📦 [Car Black Box (Event Data Recorder)](https://github.com/k0-R0/car_blackbox)
 *Embedded C Event Data Recorder firmware built on PIC16F877A microcontroller.*
@@ -44,12 +45,23 @@ I am an **Embedded Systems, Linux & Firmware Engineer** with 3 years of backgrou
 - Built interactive CLCD menu for viewing/clearing logs and adjusting time, with log data telemetry over **UART**.
 - **Tech Stack:** `C`, `PIC16F877A`, `I2C`, `UART`, `MPLAB X / XC8`
 
-#### 🐚 [Minishell (Custom Linux Shell)](https://github.com/k0-R0/Minishell)
-*A lightweight Unix command-line shell implemented in C featuring process management and job control.*
-- Engineered arbitrary-depth command pipelining using `fork()`, `execvp()`, `pipe()`, and `dup2()`.
-- Implemented POSIX signal handling (`SIGINT`, `SIGTSTP`, `SIGCHLD`) with dynamic linked-list background job control (`jobs`, `fg`, `bg`).
-- Built shell built-ins (`cd`, `pwd`, `exit`), dynamic prompt customization (`PS1`), and environment inspection (`$$`, `$?`, `$SHELL`).
-- **Tech Stack:** `C`, `Linux Systems Programming`, `POSIX API`, `Process Management`
+#### 🖼️ [Steganography Tool](https://github.com/k0-R0/Steganography)
+*Security tool that hides encrypted data inside BMP images.*
+- Utilized Least Significant Bit (LSB) substitution to embed secret payloads without corrupting image headers or visual quality.
+- **Tech Stack:** `C`, `Bit Manipulation`, `Image Processing`
+
+#### 🔍 [Lexical Analyzer (C11 Tokenizer)](https://github.com/k0-R0/Lexical-Analyzer)
+*Stream-based lexical tokenizer for C source files featuring validation and bracket tracking.*
+- Categorizes tokens into keywords, identifiers, operators, symbols, strings, and numeric constants.
+- Utilizes $O(\log N)$ binary search across sorted ANSI C keyword and operator tables.
+- Implements real-time comment/preprocessor stripping and delimiter balance verification.
+- **Tech Stack:** `C11`, `Compilers & Parsers`, `Data Structures`, `Algorithms`
+
+#### 🏎️ [PIC18 Automotive CAN Node Simulator](https://github.com/k0-R0/Car_Dashboard)
+*Distributed ECU automotive network simulator using PIC18 microcontrollers.*
+- Configured onboard ADC to capture speed & RPM, switch inputs for gear & indicators.
+- Transmitted real-time sensor metrics over **CAN protocol** between multiple ECU nodes to a central CLCD dashboard ECU.
+- **Tech Stack:** `C`, `PIC18F4580`, `CAN Protocol`, `MPLAB X / XC8`
 
 #### 🧮 [Arbitrary Precision Calculator (APC)](https://github.com/k0-R0/APC)
 *C calculator bypassing 64-bit hardware limits to execute math on numbers of infinite length.*
@@ -61,11 +73,6 @@ I am an **Embedded Systems, Linux & Firmware Engineer** with 3 years of backgrou
 *Binary parser and metadata editor for MP3 audio files.*
 - Wrote a custom file stream parser to read and modify ID3v2 metadata tags directly from binary data.
 - **Tech Stack:** `C`, `File I/O`, `Binary Parsing`
-
-#### 🖼️ [Steganography Tool](https://github.com/k0-R0/Steganography)
-*Security tool that hides encrypted data inside BMP images.*
-- Utilized Least Significant Bit (LSB) substitution to embed secret payloads without corrupting image headers or visual quality.
-- **Tech Stack:** `C`, `Bit Manipulation`, `Image Processing`
 
 #### ⚡ [NvChad Neovim Config](https://github.com/k0-R0/NvChad-nvim)
 *Keyboard-driven development environment for Linux systems programming.*

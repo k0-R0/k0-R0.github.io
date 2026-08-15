@@ -115,3 +115,24 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("load", setActiveLink);
 setActiveLink();
+
+// Synchronize active nav link and scroll on project expand/collapse
+const projectsExpand = document.querySelector(".projects-expand");
+if (projectsExpand) {
+  projectsExpand.addEventListener("toggle", () => {
+    if (!projectsExpand.open) {
+      const projectsSection = document.getElementById("projects");
+      if (projectsSection) {
+        const top = projectsSection.getBoundingClientRect().top + window.scrollY - topOffset;
+        window.scrollTo({
+          top: top,
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
+      }
+    }
+    if (typeof setActiveLink === "function") {
+      setActiveLink();
+    }
+  });
+}
+

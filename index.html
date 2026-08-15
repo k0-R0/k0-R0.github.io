@@ -164,14 +164,14 @@
 
         <div class="project-grid">
           <article class="project">
-            <h3><a class="quiet-link" href="note.html?md=projects/car-dashboard" title="Notes on this project">Car Dashboard</a></h3>
-            <p>An automotive network simulator built with PIC18 microcontrollers. Simulates a distributed vehicle system sharing speed, RPM, gear, and indicator states over a CAN bus to a central CLCD dashboard ECU.</p>
-            <ul class="tags" aria-label="Car Dashboard technologies">
+            <h3><a class="quiet-link" href="note.html?md=projects/minishell" title="Notes on this project">Minishell</a></h3>
+            <p>A custom Linux command-line shell implemented in C. Features arbitrary-depth command pipelining, POSIX signal handling, background job control (jobs, fg, bg), built-ins, and dynamic prompt customization.</p>
+            <ul class="tags" aria-label="Minishell technologies">
               <li>C</li>
-              <li>Embedded Systems</li>
-              <li>CAN Protocol</li>
+              <li>Linux Systems</li>
+              <li>Signals &amp; Pipes</li>
             </ul>
-            <a class="quiet-link" href="https://github.com/k0-R0/Car_Dashboard" target="_blank" rel="noopener noreferrer">See the code →</a>
+            <a class="quiet-link" href="https://github.com/k0-R0/Minishell" target="_blank" rel="noopener noreferrer">See the code →</a>
           </article>
 
           <article class="project">
@@ -186,28 +186,6 @@
           </article>
 
           <article class="project">
-            <h3><a class="quiet-link" href="note.html?md=projects/minishell" title="Notes on this project">Minishell</a></h3>
-            <p>A custom Linux command-line shell implemented in C. Features arbitrary-depth command pipelining, POSIX signal handling, background job control (jobs, fg, bg), built-ins, and dynamic prompt customization.</p>
-            <ul class="tags" aria-label="Minishell technologies">
-              <li>C</li>
-              <li>Linux Systems</li>
-              <li>Signals &amp; Pipes</li>
-            </ul>
-            <a class="quiet-link" href="https://github.com/k0-R0/Minishell" target="_blank" rel="noopener noreferrer">See the code →</a>
-          </article>
-
-          <article class="project">
-            <h3>MP3 Tag Editor</h3>
-            <p>A utility to read and edit MP3 metadata. I wrote a binary parser to handle ID3v2 tags directly from the file stream.</p>
-            <ul class="tags" aria-label="MP3 Tag Editor technologies">
-              <li>C</li>
-              <li>File I/O</li>
-              <li>Binary Parsing</li>
-            </ul>
-            <a class="quiet-link" href="https://github.com/k0-R0/MP3_TagReader" target="_blank" rel="noopener noreferrer">See the code →</a>
-          </article>
-
-          <article class="project">
             <h3>Steganography</h3>
             <p>Hides encrypted messages inside BMP images using Least Significant Bit (LSB) substitution. This focused on bit manipulation and keeping the header intact.</p>
             <ul class="tags" aria-label="Steganography technologies">
@@ -217,29 +195,71 @@
             </ul>
             <a class="quiet-link" href="https://github.com/k0-R0/Steganography" target="_blank" rel="noopener noreferrer">See the code →</a>
           </article>
-
-          <article class="project">
-            <h3><a class="quiet-link" href="note.html?md=projects/apc" title="Notes on this project">APC</a></h3>
-            <p>A calculator that bypasses standard 64-bit limits to handle numbers of any length. Built using doubly linked lists and custom arithmetic logic.</p>
-            <ul class="tags" aria-label="APC technologies">
-              <li>C</li>
-              <li>Data Structures</li>
-              <li>Algorithms</li>
-            </ul>
-            <a class="quiet-link" href="https://github.com/k0-R0/APC" target="_blank" rel="noopener noreferrer">See the code →</a>
-          </article>
-
-          <article class="project">
-            <h3><a class="quiet-link" href="note.html?md=projects/address-book" title="Notes on this project">Address Book</a></h3>
-            <p>A command-line contact manager that saves data to CSV files. Implemented dynamic memory allocation for the contact list and basic input validation.</p>
-            <ul class="tags" aria-label="Address Book technologies">
-              <li>C</li>
-              <li>Data Structures</li>
-              <li>CLI</li>
-            </ul>
-            <a class="quiet-link" href="https://github.com/k0-R0/Address-Book" target="_blank" rel="noopener noreferrer">See the code →</a>
-          </article>
         </div>
+
+        <details class="projects-expand">
+          <summary class="quiet-link projects-toggle-link">
+            <span class="toggle-text-closed">See more projects →</span>
+            <span class="toggle-text-open">See fewer projects ←</span>
+          </summary>
+
+          <div class="project-grid extra-projects-grid">
+            <article class="project">
+              <h3><a class="quiet-link" href="note.html?md=projects/lexical-analyzer" title="Notes on this project">Lexical Analyzer</a></h3>
+              <p>A stream-based C11 tokenizer for C source files. Categorizes tokens, strips comments and preprocessor directives on the fly, validates bracket parity, and uses binary search for O(log N) keyword and operator resolution.</p>
+              <ul class="tags" aria-label="Lexical Analyzer technologies">
+                <li>C</li>
+                <li>Parsing</li>
+                <li>Compiler Design</li>
+              </ul>
+              <a class="quiet-link" href="https://github.com/k0-R0/Lexical-Analyzer" target="_blank" rel="noopener noreferrer">See the code →</a>
+            </article>
+
+            <article class="project">
+              <h3><a class="quiet-link" href="note.html?md=projects/car-dashboard" title="Notes on this project">Car Dashboard</a></h3>
+              <p>An automotive network simulator built with PIC18 microcontrollers. Simulates a distributed vehicle system sharing speed, RPM, gear, and indicator states over a CAN bus to a central CLCD dashboard ECU.</p>
+              <ul class="tags" aria-label="Car Dashboard technologies">
+                <li>C</li>
+                <li>Embedded Systems</li>
+                <li>CAN Protocol</li>
+              </ul>
+              <a class="quiet-link" href="https://github.com/k0-R0/Car_Dashboard" target="_blank" rel="noopener noreferrer">See the code →</a>
+            </article>
+
+            <article class="project">
+              <h3>MP3 Tag Editor</h3>
+              <p>A utility to read and edit MP3 metadata. I wrote a binary parser to handle ID3v2 tags directly from the file stream.</p>
+              <ul class="tags" aria-label="MP3 Tag Editor technologies">
+                <li>C</li>
+                <li>File I/O</li>
+                <li>Binary Parsing</li>
+              </ul>
+              <a class="quiet-link" href="https://github.com/k0-R0/MP3_TagReader" target="_blank" rel="noopener noreferrer">See the code →</a>
+            </article>
+
+            <article class="project">
+              <h3><a class="quiet-link" href="note.html?md=projects/apc" title="Notes on this project">APC</a></h3>
+              <p>A calculator that bypasses standard 64-bit limits to handle numbers of any length. Built using doubly linked lists and custom arithmetic logic.</p>
+              <ul class="tags" aria-label="APC technologies">
+                <li>C</li>
+                <li>Data Structures</li>
+                <li>Algorithms</li>
+              </ul>
+              <a class="quiet-link" href="https://github.com/k0-R0/APC" target="_blank" rel="noopener noreferrer">See the code →</a>
+            </article>
+
+            <article class="project">
+              <h3><a class="quiet-link" href="note.html?md=projects/address-book" title="Notes on this project">Address Book</a></h3>
+              <p>A command-line contact manager that saves data to CSV files. Implemented dynamic memory allocation for the contact list and basic input validation.</p>
+              <ul class="tags" aria-label="Address Book technologies">
+                <li>C</li>
+                <li>Data Structures</li>
+                <li>CLI</li>
+              </ul>
+              <a class="quiet-link" href="https://github.com/k0-R0/Address-Book" target="_blank" rel="noopener noreferrer">See the code →</a>
+            </article>
+          </div>
+        </details>
 
       </section>
 

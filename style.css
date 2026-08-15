@@ -278,6 +278,64 @@ strong, .highlight, code {
   border: 1px solid rgba(102, 217, 239, 0.34);
 }
 
+/* Expandable Additional Projects via native details */
+details.projects-expand {
+  display: flex;
+  flex-direction: column;
+}
+
+details.projects-expand > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  margin-top: 1.35rem;
+  order: 2;
+  width: fit-content;
+}
+
+details.projects-expand > summary::-webkit-details-marker,
+details.projects-expand > summary::marker {
+  display: none;
+}
+
+details.projects-expand .extra-projects-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  order: 1;
+}
+
+details.projects-expand[open] .extra-projects-grid .project {
+  animation: projectFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+details.projects-expand summary .toggle-text-open {
+  display: none;
+}
+
+details.projects-expand summary .toggle-text-closed {
+  display: inline;
+}
+
+details.projects-expand[open] summary .toggle-text-open {
+  display: inline;
+}
+
+details.projects-expand[open] summary .toggle-text-closed {
+  display: none;
+}
+
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
@@ -305,7 +363,16 @@ a strong {
   color: inherit;
 }
 
-a.quiet-link {
+a.quiet-link,
+summary.quiet-link,
+button.quiet-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
   color: var(--text-secondary);
   font-weight: 500;
   display: inline-flex;
@@ -314,13 +381,17 @@ a.quiet-link {
   transition: color 0.18s ease, gap 0.2s ease;
 }
 
-a.quiet-link:hover {
+a.quiet-link:hover,
+summary.quiet-link:hover,
+button.quiet-link:hover {
   color: var(--accent);
   font-weight: 600;
   gap: 0.55rem;
 }
 
-a.quiet-link:focus-visible {
+a.quiet-link:focus-visible,
+summary.quiet-link:focus-visible,
+button.quiet-link:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
   border-radius: 6px;
