@@ -15,14 +15,32 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://k0-r0.github.io/note.html?md=projects/car-dashboard</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://k0-r0.github.io/note.html?md=projects/car-blackbox</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://k0-r0.github.io/note.html?md=projects/minishell</loc>
+    <lastmod>2026-08-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://k0-r0.github.io/note.html?md=projects/apc</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://k0-r0.github.io/note.html?md=projects/address-book</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

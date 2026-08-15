@@ -44,6 +44,13 @@ I am an **Embedded Systems, Linux & Firmware Engineer** with 3 years of backgrou
 - Built interactive CLCD menu for viewing/clearing logs and adjusting time, with log data telemetry over **UART**.
 - **Tech Stack:** `C`, `PIC16F877A`, `I2C`, `UART`, `MPLAB X / XC8`
 
+#### 🐚 [Minishell (Custom Linux Shell)](https://github.com/k0-R0/Minishell)
+*A lightweight Unix command-line shell implemented in C featuring process management and job control.*
+- Engineered arbitrary-depth command pipelining using `fork()`, `execvp()`, `pipe()`, and `dup2()`.
+- Implemented POSIX signal handling (`SIGINT`, `SIGTSTP`, `SIGCHLD`) with dynamic linked-list background job control (`jobs`, `fg`, `bg`).
+- Built shell built-ins (`cd`, `pwd`, `exit`), dynamic prompt customization (`PS1`), and environment inspection (`$$`, `$?`, `$SHELL`).
+- **Tech Stack:** `C`, `Linux Systems Programming`, `POSIX API`, `Process Management`
+
 #### 🧮 [Arbitrary Precision Calculator (APC)](https://github.com/k0-R0/APC)
 *C calculator bypassing 64-bit hardware limits to execute math on numbers of infinite length.*
 - Implemented doubly linked lists representing digits for dynamic positional arithmetic (add, subtract, multiply, divide).
