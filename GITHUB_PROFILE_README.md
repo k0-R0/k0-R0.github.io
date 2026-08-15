@@ -6,10 +6,14 @@ Embedded Systems, Linux & Firmware Engineer. Former SDET transitioning to low-le
 
 I'm focused on low-level development in C and C++ on Linux. Most of my work involves microcontroller bring-up, interfacing hardware peripherals over CAN, I2C, SPI, and UART, and writing systems-level utilities (such as custom shells, lexical tokenizers, and arbitrary-precision math engines).
 
-- **Languages:** C, C++, Bash
-- **Environment & Tools:** Linux (Fedora), Neovim, GDB, CMake, Git, Make
-- **Hardware & Microcontrollers:** PIC18F4580, PIC16F877A, MPLAB X / XC8
-- **Protocols & Peripherals:** CAN, UART, I2C, SPI, ADC, CLCD
+#### Languages
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+
+#### Systems & Tools
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Neovim](https://img.shields.io/badge/Neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white) ![CMake](https://img.shields.io/badge/CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GDB](https://img.shields.io/badge/GDB-808080?style=for-the-badge&logo=gnu&logoColor=white)
+
+#### Hardware & Protocols
+`PIC18F4580` `PIC16F877A` `CAN Bus` `UART` `I2C` `SPI` `ADC` `CLCD` `MPLAB X / XC8`
 
 ---
 
@@ -19,7 +23,7 @@ I'm focused on low-level development in C and C++ on Linux. Most of my work invo
 A lightweight Unix command-line shell written in C.
 - Built an execution pipeline supporting arbitrary-depth command chaining (`cmd1 | cmd2 | ... | cmdN`) with `fork()`, `execvp()`, `pipe()`, and `dup2()`.
 - Implemented POSIX signal handlers (`SIGINT`, `SIGTSTP`, `SIGCHLD`) with linked-list job control to manage foreground/background processes (`jobs`, `fg`, `bg`).
-- Added built-in commands (`cd`, `pwd`, `exit`), dynamic prompt updates via `PS1`, and environment variable lookups (`$$`, `$?`, `$SHELL`).
+- Added built-ins (`cd`, `pwd`, `exit`), dynamic prompt updates via `PS1`, and environment variable lookups (`$$`, `$?`, `$SHELL`).
 
 #### 📦 [Car Black Box](https://github.com/k0-R0/car_blackbox)
 Event Data Recorder firmware for the PIC16F877A microcontroller.
