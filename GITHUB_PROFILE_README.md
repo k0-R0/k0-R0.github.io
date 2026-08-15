@@ -1,103 +1,68 @@
-# Hi there, I'm Prayush B Menon (k0r05) 👋
+# Prayush B Menon (k0r05)
 
-```c
-#include <stdio.h>
+Embedded Systems, Linux & Firmware Engineer. Former SDET transitioning to low-level systems programming, bare-metal development, and firmware engineering.
 
-int main(void) {
-    printf("Embedded, Linux & Firmware Engineer\n");
-    return 0;
-}
-```
+### About
 
-### 🛠️ About Me
+I'm focused on low-level development in C and C++ on Linux. Most of my work involves microcontroller bring-up, interfacing hardware peripherals over CAN, I2C, SPI, and UART, and writing systems-level utilities (such as custom shells, lexical tokenizers, and arbitrary-precision math engines).
 
-I am an **Embedded Systems, Linux & Firmware Engineer** with 3 years of background as an SDET, currently focused on low-level C/C++ development and bare-metal programming. After 7 months of intensive full-time embedded training at **Emertxe**, I specialize in hardware protocols, microcontroller bring-up, and systems software.
-
-- ⚙️ **Currently Focusing On:** Low-level C/C++ systems programming, Linux device drivers, and firmware development.
-- 🔌 **Hardware Experience:** Hands-on with **PIC18F4580**, configuring protocols directly from datasheets (**CAN**, **UART**, **I2C**, **SPI**).
-- 💻 **Development Environment:** Fedora Linux, using a keyboard-driven **Neovim** (NvChad) setup, **CMake**, and **GDB**.
-- 🎯 **Open To:** Embedded Engineer, Linux Engineer, and Firmware Engineer roles.
+- **Languages:** C, C++, Bash
+- **Environment & Tools:** Linux (Fedora), Neovim, GDB, CMake, Git, Make
+- **Hardware & Microcontrollers:** PIC18F4580, PIC16F877A, MPLAB X / XC8
+- **Protocols & Peripherals:** CAN, UART, I2C, SPI, ADC, CLCD
 
 ---
 
-### 🧰 Tech Stack & Skills
+### Projects
 
-| Category | Technologies / Tools |
-| :--- | :--- |
-| **Languages** | ![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white) ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white) |
-| **Hardware & Protocols** | `PIC18F4580` `CAN Bus` `UART` `I2C` `SPI` `ADC` |
-| **Systems & Tools** | ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Neovim](https://img.shields.io/badge/Neovim-57A143?style=for-the-badge&logo=neovim&logoColor=white) ![CMake](https://img.shields.io/badge/CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![GDB](https://img.shields.io/badge/GDB-808080?style=for-the-badge&logo=gnu&logoColor=white) |
+#### 🐚 [Minishell](https://github.com/k0-R0/Minishell)
+A lightweight Unix command-line shell written in C.
+- Built an execution pipeline supporting arbitrary-depth command chaining (`cmd1 | cmd2 | ... | cmdN`) with `fork()`, `execvp()`, `pipe()`, and `dup2()`.
+- Implemented POSIX signal handlers (`SIGINT`, `SIGTSTP`, `SIGCHLD`) with linked-list job control to manage foreground/background processes (`jobs`, `fg`, `bg`).
+- Added built-in commands (`cd`, `pwd`, `exit`), dynamic prompt updates via `PS1`, and environment variable lookups (`$$`, `$?`, `$SHELL`).
 
----
+#### 📦 [Car Black Box](https://github.com/k0-R0/car_blackbox)
+Event Data Recorder firmware for the PIC16F877A microcontroller.
+- Logs vehicle speed, RTC time, and gear transitions into external EEPROM over I2C in a 10-slot circular buffer.
+- Features an on-screen menu system via a 16x2 Character LCD and Matrix Keypad to view logs, set time, and reset data.
+- Exports event logs over UART at 9600 Baud for terminal diagnostics.
 
-### 🚀 Featured Projects
+#### 🖼️ [Steganography](https://github.com/k0-R0/Steganography)
+A security tool that embeds encrypted messages into 24-bit BMP images.
+- Uses Least Significant Bit (LSB) substitution to store secret data in image pixels without degrading visual quality or breaking header structures.
+- Implements custom encode/decode pipelines with password-based validation.
 
-#### 🐚 [Minishell (Custom Linux Shell)](https://github.com/k0-R0/Minishell)
-*A lightweight Unix command-line shell implemented in C featuring process management and job control.*
-- Engineered arbitrary-depth command pipelining using `fork()`, `execvp()`, `pipe()`, and `dup2()`.
-- Implemented POSIX signal handling (`SIGINT`, `SIGTSTP`, `SIGCHLD`) with dynamic linked-list background job control (`jobs`, `fg`, `bg`).
-- Built shell built-ins (`cd`, `pwd`, `exit`), dynamic prompt customization (`PS1`), and environment inspection (`$$`, `$?`, `$SHELL`).
-- **Tech Stack:** `C`, `Linux Systems Programming`, `POSIX API`, `Process Management`
-
-#### 📦 [Car Black Box (Event Data Recorder)](https://github.com/k0-R0/car_blackbox)
-*Embedded C Event Data Recorder firmware built on PIC16F877A microcontroller.*
-- Recorded real-time speed, RTC timestamps, and gear transitions into external EEPROM over **I2C protocol** in a circular log buffer.
-- Built interactive CLCD menu for viewing/clearing logs and adjusting time, with log data telemetry over **UART**.
-- **Tech Stack:** `C`, `PIC16F877A`, `I2C`, `UART`, `MPLAB X / XC8`
-
-#### 🖼️ [Steganography Tool](https://github.com/k0-R0/Steganography)
-*Security tool that hides encrypted data inside BMP images.*
-- Utilized Least Significant Bit (LSB) substitution to embed secret payloads without corrupting image headers or visual quality.
-- **Tech Stack:** `C`, `Bit Manipulation`, `Image Processing`
-
-#### 🔍 [Lexical Analyzer (C11 Tokenizer)](https://github.com/k0-R0/Lexical-Analyzer)
-*Stream-based lexical tokenizer for C source files featuring validation and bracket tracking.*
-- Categorizes tokens into keywords, identifiers, operators, symbols, strings, and numeric constants.
-- Utilizes $O(\log N)$ binary search across sorted ANSI C keyword and operator tables.
-- Implements real-time comment/preprocessor stripping and delimiter balance verification.
-- **Tech Stack:** `C11`, `Compilers & Parsers`, `Data Structures`, `Algorithms`
+#### 🔍 [Lexical Analyzer](https://github.com/k0-R0/Lexical-Analyzer)
+A stream-based C11 tokenizer for C source files.
+- Strips comments (`//`, `/* */`) and preprocessor directives on the fly using character lookahead (`fgetc`/`ungetc`).
+- Uses $O(\log N)$ binary search over sorted lookup tables to categorize keywords, operators, symbols, strings, and numeric constants.
+- Tracks delimiter balance (`()`, `{}`, `[]`) and flags syntax errors like unterminated literals or malformed identifiers.
 
 #### 🏎️ [PIC18 Automotive CAN Node Simulator](https://github.com/k0-R0/Car_Dashboard)
-*Distributed ECU automotive network simulator using PIC18 microcontrollers.*
-- Configured onboard ADC to capture speed & RPM, switch inputs for gear & indicators.
-- Transmitted real-time sensor metrics over **CAN protocol** between multiple ECU nodes to a central CLCD dashboard ECU.
-- **Tech Stack:** `C`, `PIC18F4580`, `CAN Protocol`, `MPLAB X / XC8`
+A distributed automotive ECU simulator built with PIC18 microcontrollers communicating over CAN.
+- Transmitter nodes sample analog speed/RPM potentiometers (via ADC) and digital switch states (gears/indicators).
+- Transmits metrics over the CAN bus to a central receiver node (ECU3) driving a Character LCD dashboard.
 
 #### 🧮 [Arbitrary Precision Calculator (APC)](https://github.com/k0-R0/APC)
-*C calculator bypassing 64-bit hardware limits to execute math on numbers of infinite length.*
-- Implemented doubly linked lists representing digits for dynamic positional arithmetic (add, subtract, multiply, divide).
-- Designed an enum state-machine memory manager to prevent leaks across multi-step operations and error states.
-- **Tech Stack:** `C`, `Data Structures`, `Algorithms`, `Makefile`
+An arbitrary-precision calculator written in C to compute arithmetic on numbers of infinite length.
+- Digit representation using doubly linked lists with bidirectional traversal for addition, subtraction, multiplication, and division.
+- Implemented state-machine memory management to clean up intermediate operands and avoid leaks.
 
 #### 🎵 [MP3 Tag Editor](https://github.com/k0-R0/MP3_TagReader)
-*Binary parser and metadata editor for MP3 audio files.*
-- Wrote a custom file stream parser to read and modify ID3v2 metadata tags directly from binary data.
-- **Tech Stack:** `C`, `File I/O`, `Binary Parsing`
+A CLI utility to parse and modify MP3 metadata.
+- Reads and parses raw ID3v2 binary headers and frame tags directly from the file stream.
 
 #### ⚡ [NvChad Neovim Config](https://github.com/k0-R0/NvChad-nvim)
-*Keyboard-driven development environment for Linux systems programming.*
-- Tailored NvChad base with `clangd`, `Mason`, `Telescope`, and `Conform` for zero-mouse latency C/C++ editing.
-- **Tech Stack:** `Lua`, `Neovim`, `Linux`
+My personal keyboard-driven development environment for C/C++ development on Linux, configured with `clangd`, `Mason`, `Telescope`, and `Conform`.
 
-#### 📁 [Address Book CLI](https://github.com/k0-R0/Address-Book)
-*CLI contact manager with dynamic memory allocation and CSV file persistence.*
-- **Tech Stack:** `C`, `Data Structures`, `CSV Serialization`
+#### 📁 [Address Book](https://github.com/k0-R0/Address-Book)
+A terminal contact manager with dynamic memory allocation, field validation, and CSV file persistence.
 
 ---
 
-### 📊 GitHub Stats & LeetCode
+### Connect
 
-<div align="center">
-  <a href="https://leetcode.com/k0r05">
-    <img src="https://leetcode-stats-api.herokuapp.com/k0r05" alt="LeetCode Stats" height="150" />
-  </a>
-</div>
-
----
-
-### 📫 Connect With Me
-
-- 🌐 **Portfolio:** [k0-r0.github.io](https://k0-r0.github.io/)
-- 💼 **LinkedIn:** [linkedin.com/in/prayush-menon](https://linkedin.com/in/prayush-menon)
-- 🧩 **LeetCode:** [leetcode.com/k0r05](https://leetcode.com/k0r05)
-- ✉️ **Email:** [bmenonprayush@gmail.com](mailto:bmenonprayush@gmail.com)
+- **Portfolio:** [k0-r0.github.io](https://k0-r0.github.io/)
+- **LinkedIn:** [linkedin.com/in/prayush-menon](https://linkedin.com/in/prayush-menon)
+- **LeetCode:** [leetcode.com/k0r05](https://leetcode.com/k0r05)
+- **Email:** [bmenonprayush@gmail.com](mailto:bmenonprayush@gmail.com)
