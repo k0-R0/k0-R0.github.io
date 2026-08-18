@@ -67,6 +67,6 @@ A terminal contact manager with dynamic memory allocation, field validation, and
 ### Connect
 
 - **Portfolio:** [k0-r0.github.io](https://k0-r0.github.io/)
-- **LinkedIn:** [linkedin.com/in/prayush-menon](https://linkedin.com/in/prayush-menon)
+- **LinkedIn:** [linkedin.com/in/prayush-b-menon-14a17b220](https://www.linkedin.com/in/prayush-b-menon-14a17b220/)
 - **LeetCode:** [leetcode.com/k0r05](https://leetcode.com/k0r05)
 - **Email:** [bmenonprayush@gmail.com](mailto:bmenonprayush@gmail.com)
