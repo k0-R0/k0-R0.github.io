@@ -56,6 +56,11 @@ An arbitrary-precision calculator written in C to compute arithmetic on numbers 
 A CLI utility to parse and modify MP3 metadata.
 - Reads and parses raw ID3v2 binary headers and frame tags directly from the file stream.
 
+#### 🌐 [Source2HTML](https://github.com/k0-R0/Source-2-HTML)
+An event-driven C source code syntax highlighter that converts C files into styled HTML.
+- Implemented a state-event finite state machine parser engine to tokenize keywords, preprocessor directives, comments, and strings.
+- Formats tokens with custom CSS classes, escapes HTML entities, and supports optional line numbering.
+
 #### ⚡ [NvChad Neovim Config](https://github.com/k0-R0/NvChad-nvim)
 My personal keyboard-driven development environment for C/C++ development on Linux, configured with `clangd`, `Mason`, `Telescope`, and `Conform`.
 
