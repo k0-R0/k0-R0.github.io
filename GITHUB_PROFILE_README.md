@@ -25,6 +25,13 @@ A lightweight Unix command-line shell written in C.
 - Implemented POSIX signal handlers (`SIGINT`, `SIGTSTP`, `SIGCHLD`) with linked-list job control to manage foreground/background processes (`jobs`, `fg`, `bg`).
 - Added built-ins (`cd`, `pwd`, `exit`), dynamic prompt updates via `PS1`, and environment variable lookups (`$$`, `$?`, `$SHELL`).
 
+#### 📡 [Multithreaded TFTP Server & Client](https://github.com/k0-R0/TFTP)
+A multithreaded TFTP implementation in C using UDP/IP sockets, POSIX threads (`pthreads`), and semaphores.
+- Architected a Master-Dispatcher model where incoming client requests spawn detached worker threads for non-blocking asynchronous file transfers.
+- Enforced a 10-worker concurrency limit via POSIX counting semaphores (`sem_t`), returning instant non-blocking busy notices upon saturation.
+- Leveraged ephemeral UDP sockets per transfer worker to guarantee port isolation and prevent packet collisions on the main port.
+- Built custom binary framed packet protocols (`cmd_packet`, `ack_packet`, `data_packet`) with lock-step flow control, multi-file batch transfers, and 3 transmission modes (`octet`, `byte`, `mail`).
+
 #### 📦 [Car Black Box](https://github.com/k0-R0/car_blackbox)
 Event Data Recorder firmware for the PIC16F877A microcontroller.
 - Logs vehicle speed, RTC time, and gear transitions into external EEPROM over I2C in a 10-slot circular buffer.
