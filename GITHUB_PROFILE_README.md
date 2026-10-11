@@ -25,6 +25,12 @@ A lightweight Unix command-line shell written in C.
 - Implemented POSIX signal handlers (`SIGINT`, `SIGTSTP`, `SIGCHLD`) with linked-list job control to manage foreground/background processes (`jobs`, `fg`, `bg`).
 - Added built-ins (`cd`, `pwd`, `exit`), dynamic prompt updates via `PS1`, and environment variable lookups (`$$`, `$?`, `$SHELL`).
 
+#### 🌐 [Concurrent HTTP Server](https://github.com/k0-R0/HTTP_Server)
+A lightweight, multithreaded HTTP/1.1 server in C using POSIX stream sockets, a thread-safe connection ring buffer, and a worker thread pool.
+- Built a Producer-Consumer thread pool architecture with a circular connection queue (`queue_items` semaphore and mutex locks) with 8 detached worker threads.
+- Implemented HTTP/1.1 request line parsing and custom header extraction (`User-Agent`, `Content-Length`).
+- Supported dynamic path routing (`/echo/{str}`, `/user-agent`), static file serving with MIME-type detection (`.png`, `.html`, `.jpg`, `.svg`), and payload uploads (`POST /files/{filename}`) with `201 Created`.
+
 #### 📡 [Multithreaded TFTP Server & Client](https://github.com/k0-R0/TFTP)
 A multithreaded TFTP implementation in C using UDP/IP sockets, POSIX threads (`pthreads`), and semaphores.
 - Architected a Master-Dispatcher model where incoming client requests spawn detached worker threads for non-blocking asynchronous file transfers.
